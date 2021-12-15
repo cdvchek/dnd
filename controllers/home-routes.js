@@ -10,7 +10,12 @@ router.get("/signup",(req,res)=>{
 });
 
 router.get("/home",(req,res)=>{
-    return res.render("home")
+    console.log(req.session.user);
+    if(req.session.user){
+        return res.render("home");
+    } else {
+        return res.render("login");
+    }
 });
 
 module.exports = router;

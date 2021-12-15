@@ -11,6 +11,11 @@ router.post("/signup", (req,res) => {
         email,
         password,
     }).then((response)=> {
+        req.session.user = {
+            username: username,
+            email: email,
+            id: response.id,
+        }
         res.status(200).json(response);
     }).catch((err) => {
         console.log(err);
