@@ -1,0 +1,80 @@
+body{
+    background-image: linear-gradient(45deg, rgb(185, 34, 223), rgb(79, 27, 202));
+}
+
+.login-form{
+    width:33%;
+    height:50%;
+    background-color:white;
+    border-radius: 15px;
+}
+
+.login-input, .login-input:focus{
+    border: 0;
+    outline: none;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+}
+
+.login-title{
+    text-align: center;
+    margin-top:6%;
+}
+
+.login-input-field{
+    width:80%;
+    margin:6% auto;
+}
+
+.login-input-field > p{
+    margin: 0;
+}
+
+.login-input-div{
+    border-bottom: solid 1.5px rgb(167, 167, 167);
+    margin-bottom: 2%;
+    background-color:white;
+    padding: 5px;}
+
+.login-button-field{
+    text-align: center;
+}
+
+.login-button{
+    width:80%;
+    margin:auto;
+    border:none;
+    background-image: linear-gradient(45deg, rgb(185, 34, 223), rgb(79, 27, 202));
+    height: 40px;
+    border-radius: 20px;
+    color: white;
+}
+
+.login-icon{
+    position: relative;
+    left: 1.1%;
+}
+
+.login-signup-field{
+    text-align:center;
+    margin-top:4%;
+}
+
+.login-signup{
+    width:80%;
+    margin:auto;
+}
+
+.login-error-div{
+    text-align:center;
+}
+
+#login-error{
+    color:red;
+}
