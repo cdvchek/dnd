@@ -1,5 +1,33 @@
+<link rel="stylesheet" href="./css/home.css"/>
 <div>
-    <h1>home!</h1>
-    <button id="logout-button">Logout</button>
+    <nav class="navbar">
+        <h1>DnD</h1>
+        <ul class="navbar-ul">
+            <li class="navbar-item">Home</li>
+            <li class="navbar-item">About</li>
+            <li class="navbar-item">Community</li>
+            <li class="navbar-item">Character Vault</li>
+            <li class="navbar-item" id="logout-button">Logout</li>
+        </ul>
+    </nav>
+    <div id="container" class="container">
+        <div id="create-game-div" class="game-card">
+            <div class="game-name-input-field">
+                <p class="game-p">Game Name</p>
+                <div class="game-name-input-div">
+                    <input id="game-name-input" class="game-name-input" type="text" placeholder="Type your game's name">
+                </div>
+            </div>
+            <div class="game-desc-input-field">
+                <p class="game-p">Game Description</p>
+                <div class="game-desc-input-div">
+                    <textarea id="game-desc-input" class="game-desc-input" placeholder="Type your game's description"></textarea>
+                </div>
+            </div>
+            <div class="create-game-button-field">
+                <button id="create-game-button">Create Game</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="./js/home.js"></script>

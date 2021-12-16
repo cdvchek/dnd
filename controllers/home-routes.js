@@ -2,7 +2,11 @@ const router = require('express').Router();
 
 // Home Page Route
 router.get("/",(req,res)=>{
-    return res.render("login")
+    if(req.session.user){
+        return res.render("home");
+    } else {
+        return res.render("login");
+    }
 });
 
 router.get("/signup",(req,res)=>{
@@ -10,7 +14,6 @@ router.get("/signup",(req,res)=>{
 });
 
 router.get("/home",(req,res)=>{
-    console.log(req.session.user);
     if(req.session.user){
         return res.render("home");
     } else {

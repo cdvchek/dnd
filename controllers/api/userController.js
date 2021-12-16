@@ -1,7 +1,7 @@
 // This deals with the Users Table
 const express = require('express');
 const router = express.Router();
-const { User, } = require('../../models');
+const { User, Game } = require('../../models');
 const bcrypt = require("bcrypt");
 
 router.post("/signup", (req,res) => {
@@ -52,9 +52,20 @@ router.post("/login", (req, res) => {
     });
 });
 
-router.get("/logout", (req,res)=>{
+router.get("/logout", (req,res) => {
     req.session.destroy(()=>{
         res.json({msg:"Session destroyed"})
+    });
+});
+
+router.get('/allmygames',(req,res) => {
+    User.findByPk(req.session.user.id, {
+        include: [Game]
+    }).then((response) => {
+        res.status(200).json(response);
+    }).catch((err) => {
+        console.log(err);
+        res.status(500).json({message: "Something went wrong with finding your games"})
     });
 });
 

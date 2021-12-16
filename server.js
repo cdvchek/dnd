@@ -50,7 +50,7 @@ app.set('view engine', 'handlebars');
 
 // Running Server
 // =============================================================
-sequelize.sync({ force: true }).then(function() {
+sequelize.sync({ force: false }).then(function() {
     httpServer.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });
