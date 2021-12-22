@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="../css/game.css"/>
+<script src="../js/gamednd.js"></script>
+<div class="bigbox" id="data" data-id={{id}} data-name={{name}} data-isGM={{isGM}}>
+    <div class="not-middle mybox">
+        <h1>{{name}}</h1>
+        <p>{{description}}</p>
+    </div>
+    <div class="middle">
+        <div class="mybox topmiddle">
+
+        </div>
+        <div class="mybox bottommiddle">
+
+        </div>
+    </div>
+    <div class="not-middle mybox">
+        <div class="tabs-div">
+            <ul class="tabs">
+                <li class="tab" id="tab-chat" data-tab="chat">Chat</li>
+                <li class="tab" id="tab-characters" data-tab="characters">Characters</li>
+                <li class="tab" id="tab-game" data-tab="game">Game</li>
+            </ul>
+        </div>
+        <div id="chat" class="tabs-content chat-content">
+            <p>chat</p>
+        </div>
+        <div id="characters" class="tabs-content characters-content">
+            <p>characters</p>
+        </div>
+        <div id="game" class="tabs-content game-content">
+            <p>game</p>
+            {{#if isGM}}
+                <form id="invite-user-form">
+                    <input class="invite-user-input" id="invite-user-input" type="text" placeholder="Enter your friend's email">
+                    <button class="invite-user-button" id="invite-user-button">Send</button>
+                    <p id="invite-message"></p>
+                </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<script src="../js/game.js"></script>

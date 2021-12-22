@@ -69,4 +69,13 @@ router.get('/allmygames',(req,res) => {
     });
 });
 
+router.put('/update',(req,res) => {
+    console.log('someone tried to update their profile');
+    User.update(req.body,{
+        where: { id: req.session.user.id }
+    }).catch((err) => {
+        console.log(err);
+    });
+});
+
 module.exports = router;

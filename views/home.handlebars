@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="./css/home.css"/>
+<script src="./js/homehover.js"></script>
 <div>
     <nav class="navbar">
         <h1>DnD</h1>
@@ -7,10 +8,34 @@
             <li class="navbar-item">About</li>
             <li class="navbar-item">Community</li>
             <li class="navbar-item">Character Vault</li>
-            <li class="navbar-item" id="logout-button">Logout</li>
+            <li class="navbar-item navbar-profile" id="navbar-profile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+            </li>
         </ul>
     </nav>
     <div id="container" class="container">
+        {{#each game}}
+        <div class="game-card" onmouseover="onhover(this)" onmouseleave="onleave(this)" data-uid={{this.id}} data-isgm={{this.isGM}}>
+            {{#if this.isGM}}
+            <div class="delete-game-button-div">
+                <button class="delete-game-button" data-id={{this.id}}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x x" viewBox="0 0 16 16" data-id={{this.id}}>
+                        <path data-id={{this.id}} d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </button>
+            </div>
+            {{/if}}
+            <div class="game-name-input-field">
+                <h4 class="game-p">{{this.name}}</h4>
+            </div>
+            <div class="create-game-button-field">
+                <button class="launch-game-button" data-id={{this.id}}>Launch Game</button>
+            </div>
+        </div>
+        {{/each}}
         <div id="create-game-div" class="game-card">
             <div class="game-name-input-field">
                 <p class="game-p">Game Name</p>
@@ -27,6 +52,53 @@
             <div class="create-game-button-field">
                 <button id="create-game-button">Create Game</button>
             </div>
+        </div>
+
+    </div>
+    <div class="profile" id="profile">
+        <div class="close-profile-button-div">
+            <button class="close-profile-button close-profile-btn" id="close-profile-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x x close-profile-btn" viewBox="0 0 16 16">
+                    <path class="close-profile-btn" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="profile-picture-div">
+            <canvas class="profile-picture"></canvas>
+        </div>
+        <div class="username-email-div">
+            <div class="username-div">
+                <input class="edit-username" id="edit-username-input" type="text" value={{username}}>
+                <button class="edit-username" id="edit-username-button">Save</button>
+                <h2 class="username editable" id="username" onmouseover="onhoveredit(this)" onmouseleave="onleaveedit(this)">{{username}}
+                <button class="edit-button" id="edit-username-button-pencil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                    </svg>
+                </button>
+                </h2>
+            </div>
+            <div class="email-div">
+                <input class="edit-email" id="edit-email-input" type="text" value={{email}}>
+                <button class="edit-email" id="edit-email-button">Save</button>
+                <p class="email editable" id="email" onmouseover="onhoveredit(this)" onmouseleave="onleaveedit(this)">{{email}}
+                <button class="edit-button" id="edit-email-button-pencil">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                    </svg>
+                </button>
+                </p>
+            </div>
+        </div>
+        <div>
+            <ul>
+                {{#each invite}}
+                <li>You are invited to {{this.game_name}} from {{this.from_user}}<button class="accept-invite-button" data-id={{this.id}} data-gameid={{this.game_id}}>Accept</button><button class="decline-invite-button" data-id={{this.id}} data-gameid={{this.game_id}}>Decline</button></li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="logout-button-div">
+            <button class="logout" id="logout">Logout</button>
         </div>
     </div>
 </div>

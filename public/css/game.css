@@ -1,0 +1,56 @@
+.bigbox{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 100vh;
+}
+
+.middle{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.bottommiddle{
+    flex-grow: 1;
+}
+
+.topmiddle{
+    flex-basis: 85vh;
+}
+
+.not-middle{
+    flex-basis:25%;
+}
+
+.mybox{
+    border: solid red;
+}
+
+.tab{
+    display: inline;
+}
+
+.tabs-content{
+    display:none;
+}
+
+/* default tab is chat */
+
+#chat{
+    display: inline;
+}
+
+#invite-message{
+    display:none;
+}
+
+[data-type="error"]{
+    color:red;
+}
+
+[data-type="success"]{
+    color: green;
+}
