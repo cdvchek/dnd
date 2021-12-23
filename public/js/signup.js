@@ -36,7 +36,7 @@ const signup = (e) => {
                     loginErrorEl.innerHTML = "";
                 },5000)
             } else {
-                document.location.replace('/home');
+                document.location = '/';
             }
         });
 

@@ -1,6 +1,18 @@
+const socket = io.connect();
+
 const id = document.querySelector('#data').getAttribute('data-id');
+
+const joinGameRoom = () => {
+    const socketObj = {
+        game_id: id
+    }
+    socket.emit('c-joinGameRoom',socketObj);
+}
+joinGameRoom();
+
 const gameName = document.querySelector('#data').getAttribute('data-name');
 const isGM = document.querySelector('#data').getAttribute('data-isgm');
+const username = document.querySelector('#data').getAttribute('data-username');
 
 const tabsEl = document.querySelectorAll('.tab');
 const allTabsEl = document.querySelectorAll('.tabs-content');
@@ -26,11 +38,12 @@ if(isGM == 'true'){
 
     const inviteUser = (e) => {
         e.preventDefault();
+        const userEmail = inviteUserInputEl.value;
         fetch('/api/invites/',{
             method:"POST",
             body:JSON.stringify({
                 game_id: id,
-                user_email: inviteUserInputEl.value,
+                user_email: userEmail,
                 game_name: gameName,
             }),
             headers:{
@@ -56,10 +69,48 @@ if(isGM == 'true'){
                 setTimeout(() => {
                     inviteMessageEl.textContent = "";
                     inviteMessageEl.style.display = "none"
-                },5000)
+                },5000);
+                const socketObj = {
+                    game_id: id,
+                    user_email: userEmail,
+                    game_name: gameName,
+                }
+                socket.emit('c-invite',socketObj);
             }
         });
     }
     
     inviteUserFormEl.addEventListener('submit', inviteUser);
 }
+
+const chatFormEl = document.querySelector('#chat-form');
+const chatInputEl = document.querySelector('#chat-input');
+
+const sendChat = () => {
+    const message = chatInputEl.value;
+    const socketObj = {
+        message,
+        username,
+        game_id: id,
+    }
+    socket.emit('c-sendChat',socketObj);
+}
+
+chatFormEl.addEventListener('submit',sendChat);
+
+const chatLogEl = document.querySelector('#chat-log');
+
+socket.on('s-sendChat', (socketObj) => {
+    const newChatLogEl = document.createElement('li');
+
+    const newChatLogMessageEl = document.createElement('p');
+    newChatLogMessageEl.textContent = socketObj.message;
+
+    const newChatLogProfileEl = document.createElement('h5');
+    newChatLogProfileEl.textContent = socketObj.username;
+
+    newChatLogEl.append(newChatLogProfileEl);
+    newChatLogEl.append(newChatLogMessageEl);
+
+    chatLogEl.append(newChatLogEl);
+});

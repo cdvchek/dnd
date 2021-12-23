@@ -16,7 +16,7 @@
             </li>
         </ul>
     </nav>
-    <div id="container" class="container">
+    <div id="container" class="container" data-email={{email}}>
         {{#each game}}
         <div class="game-card" onmouseover="onhover(this)" onmouseleave="onleave(this)" data-uid={{this.id}} data-isgm={{this.isGM}}>
             {{#if this.isGM}}

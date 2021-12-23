@@ -1,3 +1,13 @@
+const socket = io.connect();
+const joinNotiRoom = () => {
+    const email = document.querySelector('#container').getAttribute('data-email');
+    const socketObj = {
+        email,
+    }
+    socket.emit('c-joinNotiRoom',socketObj)
+}
+joinNotiRoom();
+
 const wrapper = async () => {
     const rawSession = await fetch('/sessions')
     const session = await rawSession.json();
@@ -53,8 +63,10 @@ const wrapper = async () => {
         launchGameButtonDiv.setAttribute('class','create-game-button-field');
     
         const launchGameButton = document.createElement('button');
+        launchGameButton.setAttribute('data-id',`${id}`);
         launchGameButton.setAttribute('class','launch-game-button');
         launchGameButton.textContent = 'Launch Game';
+        launchGameButton.addEventListener('click',launchGame)
     
         // Arranging the new elements
         
@@ -131,7 +143,7 @@ const wrapper = async () => {
 
     const launchGame = (e) => {
         const id = e.target.getAttribute('data-id');
-        document.location.replace(`/game/${id}`);
+        document.location.replace(`/game${id}`);
     }
 
     launchGameButtonEl.forEach((btn) => {
@@ -288,5 +300,34 @@ const wrapper = async () => {
     declineInviteButtonEl.forEach((btn) => {
         btn.addEventListener('click', declineInvite);
     });
+
+    const makeInvite = () => {
+        const newInvite = document.createElement('li');
+
+        const newAcceptButton = document.createElement('button');
+        newAcceptButton.setAttribute('class','accept-invite-button');
+        newAcceptButton.setAttribute('data-id',id);
+        newAcceptButton.setAttribute('data-gameid',gameid);
+        newAcceptButton.textContent = 'Accept';
+
+        const newDeclineButton = document.createElement('button');
+        newDeclineButton.setAttribute('class','decline-invite-button');
+        newDeclineButton.setAttribute('data-id',id);
+        newDeclineButton.setAttribute('data-gameid',gameid);
+        newDeclineButton.textContent = 'Decline';
+
+        newInvite.textContent = "You are invited through socket";
+        newInvite.append(newAcceptButton);
+        newInvite.append(newDeclineButton);
+    }
+
+    socket.on('s-invite',(socketObj) => {
+        console.log(socketObj);
+        // Currently working here... what should be here is the 'makeInvite' function directly above this code
+        // but the 'makeInvite' function needs the id of the invite, the id of the game, and some other stuff
+        // so the socket object coming in right here should have all those things
+        // backtrack with this socket object and then make it have all that information so we can call it here
+    });
+    
 }
 wrapper();

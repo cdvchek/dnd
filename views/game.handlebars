@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../css/game.css"/>
 <script src="../js/gamednd.js"></script>
-<div class="bigbox" id="data" data-id={{id}} data-name={{name}} data-isGM={{isGM}}>
+<div class="bigbox" id="data" data-id={{id}} data-name={{name}} data-isGM={{isGM}} data-username={{username}}>
     <div class="not-middle mybox">
         <h1>{{name}}</h1>
         <p>{{description}}</p>
@@ -23,6 +23,13 @@
         </div>
         <div id="chat" class="tabs-content chat-content">
             <p>chat</p>
+            <div class="chat-log-div">
+                <ul class="chat-log" id="chat-log"></ul>
+            </div>
+            <form class="chat-form" id="chat-form">
+                <input type="text" id="chat-input">
+                <button id="chat-send-button">Send</button>
+            </form>
         </div>
         <div id="characters" class="tabs-content characters-content">
             <p>characters</p>
