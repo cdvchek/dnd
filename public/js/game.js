@@ -83,10 +83,26 @@ if(isGM == 'true'){
     inviteUserFormEl.addEventListener('submit', inviteUser);
 }
 
+const makeChatLog = (message, username) => {
+    const newChatLogEl = document.createElement('li');
+
+    const newChatLogMessageEl = document.createElement('p');
+    newChatLogMessageEl.textContent = message;
+
+    const newChatLogProfileEl = document.createElement('h5');
+    newChatLogProfileEl.textContent = username;
+
+    newChatLogEl.append(newChatLogProfileEl);
+    newChatLogEl.append(newChatLogMessageEl);
+
+    chatLogEl.append(newChatLogEl);
+}
+
 const chatFormEl = document.querySelector('#chat-form');
 const chatInputEl = document.querySelector('#chat-input');
 
-const sendChat = () => {
+const sendChat = (e) => {
+    e.preventDefault();
     const message = chatInputEl.value;
     const socketObj = {
         message,
@@ -94,6 +110,8 @@ const sendChat = () => {
         game_id: id,
     }
     socket.emit('c-sendChat',socketObj);
+    makeChatLog(message, username);
+    chatInputEl.value = "";
 }
 
 chatFormEl.addEventListener('submit',sendChat);
@@ -101,16 +119,5 @@ chatFormEl.addEventListener('submit',sendChat);
 const chatLogEl = document.querySelector('#chat-log');
 
 socket.on('s-sendChat', (socketObj) => {
-    const newChatLogEl = document.createElement('li');
-
-    const newChatLogMessageEl = document.createElement('p');
-    newChatLogMessageEl.textContent = socketObj.message;
-
-    const newChatLogProfileEl = document.createElement('h5');
-    newChatLogProfileEl.textContent = socketObj.username;
-
-    newChatLogEl.append(newChatLogProfileEl);
-    newChatLogEl.append(newChatLogMessageEl);
-
-    chatLogEl.append(newChatLogEl);
+    makeChatLog(socketObj.message, socketObj.username);
 });
