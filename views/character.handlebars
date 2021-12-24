@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="./css/character.css"/>
 <div>
     <form>
         <label for="Races">Choose a Race:</label>
@@ -131,29 +132,18 @@
         <label for="Backgrounds">Background:</label>
         <select name="Backgrounds" id="Backgrounds">
             <option value="Acolyte">Acolyte</option>
-            <option value="Acolyte-Baldur's Gate">Acolyte-Baldur's Gate</option>
-            <option value="Acolyte (Luxonborn)">Acolyte (Luxonborn)</option>
             <option value="Anthropologist">Anthropologist</option>
             <option value="Archeologist">Archeologist</option>
             <option value="Athlete">Athlete</option>
-            <option value="Azorius Functionary">Azorius Functionary</option>
-            <option value="Boros Legionnaire">Boros Legionnaire</option>
-            <option value="Celebrity Adventurer's Scion">Celebrity Adventurer's Scion</option>
             <option value="Charlatan">Charlatan</option>
-            <option value="Charlatan-Baldur's Gate">Charlatan-Baldur's Gate</option>
-            <option value="City Watch/Investigator">City Watch/Investigator</option>
+            <option value="City Watch">City Watch/Investigator</option>
             <option value="Clan Crafter">Clan Crafter</option>
             <option value="Cloistered Scholar">Cloistered Scholar</option>
             <option value="Courtier">Courtier</option>
-            <option value="Criminal-Baldur's Gate">Criminal-Baldur's Gate</option>
-            <option value="Criminal (Myriad Operative)">Criminal (Myriad Operative)</option>
-            <option value="Criminal/Spy">Criminal/Spy</option>
-            <option value="Dimir Operative">Dimir Operative</option>
+            <option value="Criminal Spy">Criminal/Spy</option>
             <option value="Entertainer">Entertainer</option>
-            <option value="Entertainer-Baldur's Gate">Entertainer-Baldur's Gate</option>
             <option value="Faceless">Faceless</option>
             <option value="Faction Agent">Faction Agent</option>
-            <option value="Failed Merchant">Failed Merchant</option>
             <option value="Far Traveler">Far Traveler</option>
             <option value="Feylost">Feylost</option>
             <option value="Fisher">Fisher</option>
@@ -219,13 +209,11 @@
             <option value="Waterdhavian Noble">Waterdhavian Noble</option>
             <option value="Witchlight Hand">Witchlight Hand</option>
             <option value="Witherbloom Student">Witherbloom Student</option>
-
-
-
-
-
-
         </select>
+        <label for="Starting-Equipment">Starting Equipment:</label>
+        <ul id="Starting-Equipment"></ul>
     </form>
 </div>
+<script src="./datajs/backgrounds.js"></script>
+<script src="./datajs/equipment.js"></script>
 <script src="./js/character.js"></script>

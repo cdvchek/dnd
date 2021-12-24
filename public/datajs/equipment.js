@@ -1,4 +1,4 @@
-{
+const equipment = {
     "abacus":{
         "name":"Abacus",
         "type":"Adventuring Gear",

@@ -1,3 +1,5 @@
+console.log(backgrounds);
+
 const attributeRollButtonEl = document.querySelector('#roll-ability-scores');
 const strengthEl = document.querySelector('#Strength');
 const dexterityEl = document.querySelector('#Dexterity');
@@ -30,3 +32,31 @@ const rollAbilityScores = (e) => {
 }
 
 attributeRollButtonEl.addEventListener('click',rollAbilityScores);
+
+const startingEquipmentUlEl = document.querySelector('#Starting-Equipment');
+const classInputEl = document.querySelector('#Classes');
+const backgroundInputEl = document.querySelector('#Backgrounds');
+
+const addStartingEquipment = (equipment) => {
+    if(typeof equipment === "string"){
+        const newEquipment = document.createElement('li');
+        newEquipment.textContent = equipment;
+        startingEquipmentUlEl.append(newEquipment);
+    }
+}
+
+const findStartingEquipmentClss = (e) => {
+    const myClass = e.target.value;
+}
+
+const findStartingEquipmentBckgrnd = (e) => {
+    startingEquipmentUlEl.textContent = "";
+    const background = e.target.value.split(' ').join('-').toLowerCase();
+    for (let i = 0; i < backgrounds[background].equipment.length; i++) {
+        addStartingEquipment(backgrounds[background].equipment[i]);
+    }
+}
+
+classInputEl.addEventListener('change',findStartingEquipmentClss)
+
+backgroundInputEl.addEventListener('change',findStartingEquipmentBckgrnd);
