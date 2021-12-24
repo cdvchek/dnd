@@ -62,6 +62,7 @@ if(isGM == 'true'){
                     inviteMessageEl.style.display = "none"
                 },5000)
             } else {
+                console.log(res);
                 inviteMessageEl.setAttribute('data-type','success');
                 inviteUserInputEl.value = "";
                 inviteMessageEl.style.display = "inline"
@@ -71,6 +72,7 @@ if(isGM == 'true'){
                     inviteMessageEl.style.display = "none"
                 },5000);
                 const socketObj = {
+                    invite_id: res.id,
                     game_id: id,
                     user_email: userEmail,
                     game_name: gameName,

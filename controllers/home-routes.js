@@ -47,4 +47,9 @@ router.get("/game:id",(req,res) => {
     }
 });
 
+// Character Creation
+router.get('/createcharacter',(req,res) => {
+    return res.render("character");
+});
+
 module.exports = router;

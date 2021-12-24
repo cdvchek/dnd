@@ -301,7 +301,9 @@ const wrapper = async () => {
         btn.addEventListener('click', declineInvite);
     });
 
-    const makeInvite = () => {
+    const inviteUlEl = document.querySelector('#invite-ul');
+
+    const makeInvite = (id,gameid) => {
         const newInvite = document.createElement('li');
 
         const newAcceptButton = document.createElement('button');
@@ -309,24 +311,26 @@ const wrapper = async () => {
         newAcceptButton.setAttribute('data-id',id);
         newAcceptButton.setAttribute('data-gameid',gameid);
         newAcceptButton.textContent = 'Accept';
+        newAcceptButton.addEventListener('click',acceptInvite)
 
         const newDeclineButton = document.createElement('button');
         newDeclineButton.setAttribute('class','decline-invite-button');
         newDeclineButton.setAttribute('data-id',id);
         newDeclineButton.setAttribute('data-gameid',gameid);
         newDeclineButton.textContent = 'Decline';
+        newDeclineButton.addEventListener('click',declineInvite)
 
         newInvite.textContent = "You are invited through socket";
         newInvite.append(newAcceptButton);
         newInvite.append(newDeclineButton);
+
+        inviteUlEl.append(newInvite);
     }
 
     socket.on('s-invite',(socketObj) => {
-        console.log(socketObj);
-        // Currently working here... what should be here is the 'makeInvite' function directly above this code
-        // but the 'makeInvite' function needs the id of the invite, the id of the game, and some other stuff
-        // so the socket object coming in right here should have all those things
-        // backtrack with this socket object and then make it have all that information so we can call it here
+        const gameID = socketObj.game_id;
+        const inviteID = socketObj.invite_id;
+        makeInvite(inviteID,gameID);
     });
     
 }

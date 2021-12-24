@@ -28,7 +28,7 @@
             </div>
             <form class="chat-form" id="chat-form">
                 <input type="text" id="chat-input">
-                <button id="chat-send-button">Send</button>
+                <button id="chat-send-button" placeholder="Send your chat.">Send</button>
             </form>
         </div>
         <div id="characters" class="tabs-content characters-content">
@@ -38,8 +38,8 @@
             <p>game</p>
             {{#if isGM}}
                 <form id="invite-user-form">
-                    <input class="invite-user-input" id="invite-user-input" type="text" placeholder="Send your chat.">
-                    <button class="invite-user-button" id="invite-user-button">Send</button>
+                    <input class="invite-user-input" id="invite-user-input" type="text" placeholder="Type your friend's email.">
+                    <button class="invite-user-button" id="invite-user-button">Invite</button>
                     <p id="invite-message"></p>
                 </form>
             {{/if}}
