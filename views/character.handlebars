@@ -1,219 +1,256 @@
 <link rel="stylesheet" href="./css/character.css"/>
-<div>
-    <form>
-        <label for="Races">Choose a Race:</label>
-        <select name="Races" id="Races">
-            <optgroup label="Player's Handbook">
-                <option value="Dragonborn">Dragonborn</option>
-                <option value="Dwarf">Dwarf</option>
-                <option value="Elf">Elf</option>
-                <option value="Gnome">Gnome</option>
-                <option value="Halfling">Halfling</option>
-                <option value="Half-Orc">Half-Orc</option>
-                <option value="Human">Human</option>
-                <option value="Tiefling">Tiefling</option>
-            </optgroup>
-            <optgroup label="Explorer's Guide to Wildemount">
-                <option value="Orc of Exandria">Orc of Exandria</option>
-            </optgroup>
-            <optgroup label="Mythic Odysseys of Theros">
-                <option value="Leonin">Leonin</option>
-                <option value="Satyr">Satry</option>
-            </optgroup>
-            <optgroup label="Van Richten's Guide to Ravenloft">
-                <option value="Lineages">Lineages</option>
-            </optgroup>
-            <optgroup label="The Wild Beyond the Witchlight">
-                <option value="Fairy">Fairy</option>
-                <option value="Harengon">Harengon</option>
-            </optgroup>
-            <optgroup label="Strixhaven: A Curriculum of Chaos">
-                <option value="Owlin">Owlin</option>
-            </optgroup>
-            <optgroup label="Elemental Evil Player's Companion">
-                <option value="Aarakocra">Aarakocra</option>
-                <option value="Genasi">Genasi</option>
-                <option value="Goliath">Goliath</option>
-            </optgroup>
-            <optgroup label="Volo's Guide to Monsters">
-                <option value="Aasimar">Aasimar</option>
-                <option value="Bugbear">Bugbear</option>
-                <option value="Firbolg">Firbolg</option>
-                <option value="Goblin">Goblin</option>
-                <option value="Hobgoblin">Hobgoblin</option>
-                <option value="Kenku">Kenku</option>
-                <option value="Kobold">Kobold</option>
-                <option value="Lizardfolk">Lizardfolk</option>
-                <option value="Orc">Orc</option>
-                <option value="Tabaxi">Tabaxi</option>
-                <option value="Triton">Triton</option>
-                <option value="Yuan-ti Pureblood">Yuan-ti Pureblood</option>
-            </optgroup>
-            <optgroup label="Sword Coast Adventurer's Guide">
-                <option value="Feral Tiefling">Feral Tiefling</option>
-            </optgroup>
-            <optgroup label="The Tortle Package">
-                <option value="Tortle">Tortle</option>
-            </optgroup>
-            <optgroup label="Eberron: Rising from the Last War">
-                <option value="Changeling">Changeling</option>
-                <option value="Kalashtar">Kalashtar</option>
-                <option value="Orc of Eberron">Orc of Eberron</option>
-                <option value="Shifter">Shifter</option>
-                <option value="Warforged">Wargorged</option>
-            </optgroup>
-            <optgroup label="Mordenkainen's Tome of Foes">
-                <option value="Gith">Gith</option>
-            </optgroup>
-            <optgroup label="Guildmasters' Guide to Ravnica">
-                <option value="Centaur">Centaur</option>
-                <option value="Loxodon">Loxodon</option>
-                <option value="Minotaur">Minotaur</option>
-                <option value="Simic Hybrid">Simic Hybrid</option>
-                <option value="Vedalken">Vedalken</option>
-            </optgroup>
-            <optgroup label="Aquistions Incorporated">
-                <option value="Verdan">Verdan</option>
-            </optgroup>
-            <optgroup label="Locathah Rising">
-                <option value="Locathah">Locathah</option>
-            </optgroup>
-            <optgroup label="One Grung Above">
-                <option value="Grung">Grung</option>
-            </optgroup>
-        </select>
-        <label for="Classes">Choose a Class:</label>
-        <select name="Classes" id="Classes">
-            <optgroup label="Player's Handbook">
-                <option value="Barbarian">Barbarian</option>
-                <option value="Bard">Bard</option>
-                <option value="Cleric">Cleric</option>
-                <option value="Druid">Druid</option>
-                <option value="Fighter">Fighter</option>
-                <option value="Monk">Monk</option>
-                <option value="Paladin">Paladin</option>
-                <option value="Ranger">Ranger</option>
-                <option value="Rogue">Rogue</option>
-                <option value="Sorcerer">Sorcerer</option>
-                <option value="Warlock">Warlock</option>
-                <option value="Wizard">Wizard</option>
-            </optgroup>
-            <optgroup label="Tasha's Cauldron of Everything">
-                <option value="Artificer">Artificer</option>
-            </optgroup>
-            <optgroup label="Critical Role">
-                <option value="Blood Hunter">Blood Hunter</option>
-            </optgroup>
-        </select>
-        <label for="Ability-Scores">Determine Ability Scores:</label>
-        <div id="Ability-Scores">
-            <label for="Strength">Strength</label>
-            <input id="Strength" type="number"/>
-            <label for="Dexterity">Dexterity</label>
-            <input id="Dexterity" type="number"/>
-            <label for="Constitution">Constitution</label>
-            <input id="Constitution" type="number"/>
-            <label for="Intelligence">Intelligence</label>
-            <input id="Intelligence" type="number"/>
-            <label for="Wisdom">Wisdom</label>
-            <input id="Wisdom" type="number"/>
-            <label for="Charisma">Charisma</label>
-            <input id="Charisma" type="number"/>
-            <button id="roll-ability-scores">Roll</button>
+<div id="everything">
+    <div id="whitespace">
+        <form id="form">
+            <div id="race">
+                <div class="spacing"></div>
+                <h1>Race</h1>
+                <label  for="Races">Choose a Race:</label>
+                <select name="Races" id="Races">
+                    <optgroup label="Player's Handbook">
+                        <option value="Dragonborn">Dragonborn</option>
+                        <option value="Dwarf">Dwarf</option>
+                        <option value="Elf">Elf</option>
+                        <option value="Gnome">Gnome</option>
+                        <option value="Halfling">Halfling</option>
+                        <option value="Half-Orc">Half-Orc</option>
+                        <option value="Human">Human</option>
+                        <option value="Tiefling">Tiefling</option>
+                    </optgroup>
+                    <optgroup label="Explorer's Guide to Wildemount">
+                        <option value="Orc of Exandria">Orc of Exandria</option>
+                    </optgroup>
+                    <optgroup label="Mythic Odysseys of Theros">
+                        <option value="Leonin">Leonin</option>
+                        <option value="Satyr">Satry</option>
+                    </optgroup>
+                    <optgroup label="Van Richten's Guide to Ravenloft">
+                        <option value="Lineages">Lineages</option>
+                    </optgroup>
+                    <optgroup label="The Wild Beyond the Witchlight">
+                        <option value="Fairy">Fairy</option>
+                        <option value="Harengon">Harengon</option>
+                    </optgroup>
+                    <optgroup label="Strixhaven: A Curriculum of Chaos">
+                        <option value="Owlin">Owlin</option>
+                    </optgroup>
+                    <optgroup label="Elemental Evil Player's Companion">
+                        <option value="Aarakocra">Aarakocra</option>
+                        <option value="Genasi">Genasi</option>
+                        <option value="Goliath">Goliath</option>
+                    </optgroup>
+                    <optgroup label="Volo's Guide to Monsters">
+                        <option value="Aasimar">Aasimar</option>
+                        <option value="Bugbear">Bugbear</option>
+                        <option value="Firbolg">Firbolg</option>
+                        <option value="Goblin">Goblin</option>
+                        <option value="Hobgoblin">Hobgoblin</option>
+                        <option value="Kenku">Kenku</option>
+                        <option value="Kobold">Kobold</option>
+                        <option value="Lizardfolk">Lizardfolk</option>
+                        <option value="Orc">Orc</option>
+                        <option value="Tabaxi">Tabaxi</option>
+                        <option value="Triton">Triton</option>
+                        <option value="Yuan-ti Pureblood">Yuan-ti Pureblood</option>
+                    </optgroup>
+                    <optgroup label="Sword Coast Adventurer's Guide">
+                        <option value="Feral Tiefling">Feral Tiefling</option>
+                    </optgroup>
+                    <optgroup label="The Tortle Package">
+                        <option value="Tortle">Tortle</option>
+                    </optgroup>
+                    <optgroup label="Eberron: Rising from the Last War">
+                        <option value="Changeling">Changeling</option>
+                        <option value="Kalashtar">Kalashtar</option>
+                        <option value="Orc of Eberron">Orc of Eberron</option>
+                        <option value="Shifter">Shifter</option>
+                        <option value="Warforged">Wargorged</option>
+                    </optgroup>
+                    <optgroup label="Mordenkainen's Tome of Foes">
+                        <option value="Gith">Gith</option>
+                    </optgroup>
+                    <optgroup label="Guildmasters' Guide to Ravnica">
+                        <option value="Centaur">Centaur</option>
+                        <option value="Loxodon">Loxodon</option>
+                        <option value="Minotaur">Minotaur</option>
+                        <option value="Simic Hybrid">Simic Hybrid</option>
+                        <option value="Vedalken">Vedalken</option>
+                    </optgroup>
+                    <optgroup label="Aquistions Incorporated">
+                        <option value="Verdan">Verdan</option>
+                    </optgroup>
+                    <optgroup label="Locathah Rising">
+                        <option value="Locathah">Locathah</option>
+                    </optgroup>
+                    <optgroup label="One Grung Above">
+                        <option value="Grung">Grung</option>
+                    </optgroup>
+                </select>
+                <p id="race-description"></p>
+                <div id="custom-race"></div>
+                <button class="back" data-back="#background" data-current="#race">Back</button>
+                <button class="next" data-next="#class" data-current="#race">Next</button>
+            </div>
+            <div id="class">
+                <label for="Classes">Choose a Class:</label>
+                <select name="Classes" id="Classes">
+                    <optgroup label="Player's Handbook">
+                        <option value="Barbarian">Barbarian</option>
+                        <option value="Bard">Bard</option>
+                        <option value="Cleric">Cleric</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Fighter">Fighter</option>
+                        <option value="Monk">Monk</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Ranger">Ranger</option>
+                        <option value="Rogue">Rogue</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Warlock">Warlock</option>
+                        <option value="Wizard">Wizard</option>
+                    </optgroup>
+                    <optgroup label="Tasha's Cauldron of Everything">
+                        <option value="Artificer">Artificer</option>
+                    </optgroup>
+                    <optgroup label="Critical Role">
+                        <option value="Blood Hunter">Blood Hunter</option>
+                    </optgroup>
+                </select>
+                <button class="back" data-back="#race" data-current="#class">Back</button>
+                <button class="next" data-next="#ability-scores" data-current="#class">Next</button>
+            </div>
+            <div id="ability-scores">
+                <label for="Ability-Scores">Determine Ability Scores:</label>
+                <div id="Ability-Scores">
+                    <label for="Strength">Strength</label>
+                    <input id="Strength" type="number"/>
+                    <label for="Dexterity">Dexterity</label>
+                    <input id="Dexterity" type="number"/>
+                    <label for="Constitution">Constitution</label>
+                    <input id="Constitution" type="number"/>
+                    <label for="Intelligence">Intelligence</label>
+                    <input id="Intelligence" type="number"/>
+                    <label for="Wisdom">Wisdom</label>
+                    <input id="Wisdom" type="number"/>
+                    <label for="Charisma">Charisma</label>
+                    <input id="Charisma" type="number"/>
+                    <button id="roll-ability-scores">Roll</button>
+                </div>
+                <button class="back" data-back="#class" data-current="#ability-scores">Back</button>
+                <button class="next" data-next="#character-traits" data-current="#ability-scores">Next</button>
+            </div>
+            <div id="character-traits">
+                <label for="Character-Name">Name:</label>
+                <input id="Character-Name" placeholder="Character Name."/>
+                <label for="Backstory">Backstory:</label>
+                <textarea id="Backstory" placeholder="Type your character's backstory here."></textarea>
+                <label for="Personality">Personality:</label>
+                <textarea id="Personality" placeholder="Type your character's personality here."></textarea>
+                <label for="Physcial-Traits">Physical Traits</label>
+                <textarea id="Physical-Traits" placeholder="What does your character look like?"></textarea>
+                <button class="back" data-back="#ability-scores" data-current="#character-traits">Back</button>
+                <button class="next" data-next="#background" data-current="#character-traits">Next</button>
+            </div>
+            <div id="background">
+                <label for="Backgrounds">Background:</label>
+                <select name="Backgrounds" id="Backgrounds">
+                    <option value="Acolyte">Acolyte</option>
+                    <option value="Anthropologist">Anthropologist</option>
+                    <option value="Archeologist">Archeologist</option>
+                    <option value="Athlete">Athlete</option>
+                    <option value="Charlatan">Charlatan</option>
+                    <option value="City Watch">City Watch/Investigator</option>
+                    <option value="Clan Crafter">Clan Crafter</option>
+                    <option value="Cloistered Scholar">Cloistered Scholar</option>
+                    <option value="Courtier">Courtier</option>
+                    <option value="Criminal Spy">Criminal/Spy</option>
+                    <option value="Entertainer">Entertainer</option>
+                    <option value="Faceless">Faceless</option>
+                    <option value="Faction Agent">Faction Agent</option>
+                    <option value="Far Traveler">Far Traveler</option>
+                    <option value="Feylost">Feylost</option>
+                    <option value="Fisher">Fisher</option>
+                    <option value="Folk Hero">Folk Hero</option>
+                    <option value="Folk Hero-Baldur's Gate">Folk Hero-Baldur's Gate</option>
+                    <option value="Gambler">Gambler</option>
+                    <option value="Gladiator">Gladiator</option>
+                    <option value="Golgari Agent">Golgari Agent</option>
+                    <option value="Grinner">Grinner</option>
+                    <option value="Gruul Anarch">Gruul Anarch</option>
+                    <option value="Guild Artisan/Guild Merchant">Guild Artisan/Guild Merchant</option>
+                    <option value="Haunted One">Haunted One</option>
+                    <option value="Hermit">Hermit</option>
+                    <option value="Hermit-Baldur's Gate">Hermit-Baldur's Gate</option>
+                    <option value="House Agent (Cannith)">House Agent (Cannith)</option>
+                    <option value="House Agent (Deneith)">House Agent (Deneith)</option>
+                    <option value="House Agent (Ghallanda)">House Agent (Ghallanda)</option>
+                    <option value="House Agent (Jorasco)">House Agent (Jorasco)</option>
+                    <option value="House Agent (Kundarak)">House Agent (Kundarak)</option>
+                    <option value="House Agent (Lyrandar)">House Agent (Lyrandar)</option>
+                    <option value="House Agent (Medani)">House Agent (Medani)</option>
+                    <option value="House Agent (Orien)">House Agent (Orien)</option>
+                    <option value="House Agent (Phiarlan)">House Agent (Phiarlan)</option>
+                    <option value="House Agent (Sivis)">House Agent (Sivis)</option>
+                    <option value="House Agent (Tharashk)">House Agent (Tharashk)</option>
+                    <option value="House Agent (Thuranni)">House Agent (Thuranni)</option>
+                    <option value="House Agent (Vadalis)">House Agent (Vadalis)</option>
+                    <option value="Inheritor">Inheritor</option>
+                    <option value="Investigator">Investigator</option>
+                    <option value="Izzet Engineer">Izzet Engineer</option>
+                    <option value="Knight">Knight</option>
+                    <option value="Knight of the Order">Knight of the Order</option>
+                    <option value="Lorehold Student">Lorehold Student</option>
+                    <option value="Marine">Marine</option>
+                    <option value="Mercenary Veteran">Mercenary Veteran</option>
+                    <option value="Noble">Noble</option>
+                    <option value="Noble-Baldur's Gate">Noble-Baldur's Gate</option>
+                    <option value="Orzhov Representative">Orzhov Representative</option>
+                    <option value="Outlander">Outlander</option>
+                    <option value="Outlander-Baldur's Gate">Outlander-Baldur's Gate</option>
+                    <option value="Pirate">Pirate</option>
+                    <option value="Plaintiff">Plaintiff</option>
+                    <option value="Prismari Student">Prismari Student</option>
+                    <option value="Quandrix Student">Quandrix Student</option>
+                    <option value="Rakdos Cultist">Rakdos Cultist</option>
+                    <option value="Rival Intern">Rival Intern</option>
+                    <option value="Sage">Sage</option>
+                    <option value="Sage-Baldur's Gate">Sage-Baldur's Gate</option>
+                    <option value="Sage (Revelry Pirate)">Sage (Revelry Pirate)</option>
+                    <option value="Selesnya Initiate">Selesnya Initiate</option>
+                    <option value="Shipwright">Shipwright</option>
+                    <option value="Silverquill Student">Silverquill Student</option>
+                    <option value="Simic Scientist">Simic Scientist</option>
+                    <option value="Smuggler">Smuggler</option>
+                    <option value="Soldier">Soldier</option>
+                    <option value="Soldier-Baldur's Gate">Soldier-Baldur's Gate</option>
+                    <option value="Spy (Augen Trust)">Spy (Augen Trust)</option>
+                    <option value="Urban Bounty Hunter">Urban Bounty Hunter</option>
+                    <option value="Urchin">Urchin</option>
+                    <option value="Urchin-Baldur's Gate">Urchin-Baldur's Gate</option>
+                    <option value="Uthgardt Tribe Member">Uthgardt Tribe Member</option>
+                    <option value="Volstrucker Agent">Volstrucker Agent</option>
+                    <option value="Waterdhavian Noble">Waterdhavian Noble</option>
+                    <option value="Witchlight Hand">Witchlight Hand</option>
+                    <option value="Witherbloom Student">Witherbloom Student</option>
+                </select>
+                <button class="back" data-back="#character-traits" data-current="#background">Back</button>
+                <button class="next" data-next="#race" data-current="#background">Next</button>
+                <button>Confirm Character</button>
+            </div>
+        </form>
+        <div id="starting-equipment">
+            <label for="Starting-Equipment">Starting Equipment:</label>
+            <div id="starting-equipment-uls">
+                <h5>Class: <span id="class-equipment-span">Barbarian</span></h5>
+                <ul id="Starting-Equipment-Class"></ul>
+                <h5>Background: <span id="background-equipment-span">Acolyte</span></h5>
+                <ul id="Starting-Equipment-Background"></ul>
+            </div>
         </div>
-        <label for="Character-Name">Name:</label>
-        <input id="Character-Name" placeholder="Character Name."/>
-        <label for="Backstory">Backstory:</label>
-        <textarea id="Backstory" placeholder="Type your character's backstory here."></textarea>
-        <label for="Personality">Personality:</label>
-        <textarea id="Personality" placeholder="Type your character's personality here."></textarea>
-        <label for="Physcial-Traits">Physical Traits</label>
-        <textarea id="Physical-Traits" placeholder="What does your character look like?"></textarea>
-        <label for="Backgrounds">Background:</label>
-        <select name="Backgrounds" id="Backgrounds">
-            <option value="Acolyte">Acolyte</option>
-            <option value="Anthropologist">Anthropologist</option>
-            <option value="Archeologist">Archeologist</option>
-            <option value="Athlete">Athlete</option>
-            <option value="Charlatan">Charlatan</option>
-            <option value="City Watch">City Watch/Investigator</option>
-            <option value="Clan Crafter">Clan Crafter</option>
-            <option value="Cloistered Scholar">Cloistered Scholar</option>
-            <option value="Courtier">Courtier</option>
-            <option value="Criminal Spy">Criminal/Spy</option>
-            <option value="Entertainer">Entertainer</option>
-            <option value="Faceless">Faceless</option>
-            <option value="Faction Agent">Faction Agent</option>
-            <option value="Far Traveler">Far Traveler</option>
-            <option value="Feylost">Feylost</option>
-            <option value="Fisher">Fisher</option>
-            <option value="Folk Hero">Folk Hero</option>
-            <option value="Folk Hero-Baldur's Gate">Folk Hero-Baldur's Gate</option>
-            <option value="Gambler">Gambler</option>
-            <option value="Gladiator">Gladiator</option>
-            <option value="Golgari Agent">Golgari Agent</option>
-            <option value="Grinner">Grinner</option>
-            <option value="Gruul Anarch">Gruul Anarch</option>
-            <option value="Guild Artisan/Guild Merchant">Guild Artisan/Guild Merchant</option>
-            <option value="Haunted One">Haunted One</option>
-            <option value="Hermit">Hermit</option>
-            <option value="Hermit-Baldur's Gate">Hermit-Baldur's Gate</option>
-            <option value="House Agent (Cannith)">House Agent (Cannith)</option>
-            <option value="House Agent (Deneith)">House Agent (Deneith)</option>
-            <option value="House Agent (Ghallanda)">House Agent (Ghallanda)</option>
-            <option value="House Agent (Jorasco)">House Agent (Jorasco)</option>
-            <option value="House Agent (Kundarak)">House Agent (Kundarak)</option>
-            <option value="House Agent (Lyrandar)">House Agent (Lyrandar)</option>
-            <option value="House Agent (Medani)">House Agent (Medani)</option>
-            <option value="House Agent (Orien)">House Agent (Orien)</option>
-            <option value="House Agent (Phiarlan)">House Agent (Phiarlan)</option>
-            <option value="House Agent (Sivis)">House Agent (Sivis)</option>
-            <option value="House Agent (Tharashk)">House Agent (Tharashk)</option>
-            <option value="House Agent (Thuranni)">House Agent (Thuranni)</option>
-            <option value="House Agent (Vadalis)">House Agent (Vadalis)</option>
-            <option value="Inheritor">Inheritor</option>
-            <option value="Investigator">Investigator</option>
-            <option value="Izzet Engineer">Izzet Engineer</option>
-            <option value="Knight">Knight</option>
-            <option value="Knight of the Order">Knight of the Order</option>
-            <option value="Lorehold Student">Lorehold Student</option>
-            <option value="Marine">Marine</option>
-            <option value="Mercenary Veteran">Mercenary Veteran</option>
-            <option value="Noble">Noble</option>
-            <option value="Noble-Baldur's Gate">Noble-Baldur's Gate</option>
-            <option value="Orzhov Representative">Orzhov Representative</option>
-            <option value="Outlander">Outlander</option>
-            <option value="Outlander-Baldur's Gate">Outlander-Baldur's Gate</option>
-            <option value="Pirate">Pirate</option>
-            <option value="Plaintiff">Plaintiff</option>
-            <option value="Prismari Student">Prismari Student</option>
-            <option value="Quandrix Student">Quandrix Student</option>
-            <option value="Rakdos Cultist">Rakdos Cultist</option>
-            <option value="Rival Intern">Rival Intern</option>
-            <option value="Sage">Sage</option>
-            <option value="Sage-Baldur's Gate">Sage-Baldur's Gate</option>
-            <option value="Sage (Revelry Pirate)">Sage (Revelry Pirate)</option>
-            <option value="Selesnya Initiate">Selesnya Initiate</option>
-            <option value="Shipwright">Shipwright</option>
-            <option value="Silverquill Student">Silverquill Student</option>
-            <option value="Simic Scientist">Simic Scientist</option>
-            <option value="Smuggler">Smuggler</option>
-            <option value="Soldier">Soldier</option>
-            <option value="Soldier-Baldur's Gate">Soldier-Baldur's Gate</option>
-            <option value="Spy (Augen Trust)">Spy (Augen Trust)</option>
-            <option value="Urban Bounty Hunter">Urban Bounty Hunter</option>
-            <option value="Urchin">Urchin</option>
-            <option value="Urchin-Baldur's Gate">Urchin-Baldur's Gate</option>
-            <option value="Uthgardt Tribe Member">Uthgardt Tribe Member</option>
-            <option value="Volstrucker Agent">Volstrucker Agent</option>
-            <option value="Waterdhavian Noble">Waterdhavian Noble</option>
-            <option value="Witchlight Hand">Witchlight Hand</option>
-            <option value="Witherbloom Student">Witherbloom Student</option>
-        </select>
-        <label for="Starting-Equipment">Starting Equipment:</label>
-        <ul id="Starting-Equipment"></ul>
-    </form>
+    </div>
 </div>
+<script src="./datajs/races.js"></script>
+<script src="./datajs/classes.js"></script>
 <script src="./datajs/backgrounds.js"></script>
 <script src="./datajs/equipment.js"></script>
 <script src="./js/character.js"></script>
+<script src="./js/character-races.js"></script>
