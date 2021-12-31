@@ -67,6 +67,10 @@
     height:15px;
 }
 
+.inline{
+    display:inline;
+}
+
 #dragonborn-type-label{
     margin-right: 5px;
 }

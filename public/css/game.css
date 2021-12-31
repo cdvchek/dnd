@@ -19,6 +19,11 @@
 
 .topmiddle{
     flex-basis: 85vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 }
 
 .not-middle{

@@ -1,236 +1,196 @@
-const racesSelectEl = document.querySelector('#Races');
-const raceDescriptionEl = document.querySelector('#race-description');
+// TODO: Make a function that accepts an array of select nodes and makes them unique in that they each dynamically remove and add options to make sure they can't have the same option.
 
-const changeRace = () => {
-    const raceElements = document.querySelectorAll('.race-element');
-    raceElements.forEach(element => element.style.display = "none");
+const decodeString = (string) => {
+    const stringArr = string.split('-')
+    for (let i = 0; i < stringArr.length; i++) {
+        if(stringArr[i].includes('zz')){
+            stringArr[i] = stringArr[i].replaceAll('zz','');
+            stringArr[i] = stringArr[i].toUpperCase();
+        }
+        stringArr[i] = stringArr[i].charAt(0).toUpperCase() + stringArr[i].slice(1);
+    }
+    const stringName = stringArr.join(' ');
+    return stringName;
 }
 
-const customRaceEl = document.querySelector('#custom-race');
+const racesSelect = document.querySelector('#Races');
+const raceDiv = document.querySelector("#race");
+const racesList = Object.entries(races);
 
-const makeSelect = (anchor,listoptions,options) => {
-    const newList = document.createElement('select');
-    for (let i = 0; i < listoptions.length; i++) {
-        newList.setAttribute(listoptions[i][0],listoptions[i][1]);
+racesList.forEach((race,i) => {
+    // Creating an option for the user to select each race
+    const newRaceOption = document.createElement('option');
+    newRaceOption.value = race[0];
+    newRaceOption.textContent = decodeString(race[0]);
+    racesSelect.append(newRaceOption);
+
+    //Create a div for each race
+    const newRaceDiv = document.createElement('div');
+    newRaceDiv.setAttribute('class',`${race[0]} race-element`);
+    raceDiv.append(newRaceDiv);
+    if(i !== 0){
+        newRaceDiv.style.display = 'none';
     }
-    for (let i = 0; i < options.length; i++) {
-        const newOption = document.createElement('option');
-        newOption.setAttribute('value',options[i][0].split(' ').join('-').toLowerCase());
-        newOption.textContent = options[i][0];
-        for (let j = 1; j < options[i].length; j++) {
-            newOption.setAttribute(options[i][j][0],options[i][j][1]);
-            console.log(options[i][j]);
-        }
-        newList.append(newOption);
-    }
-    anchor.append(newList);
-}
 
-const addNewFeatureList = (list,race) => {
-    const nodes = [];
-    const newList = document.createElement('ul');
-    nodes.push(newList);
-    nodes.push([]);
-    if (race) {
-        newList.setAttribute('class','race-element ' + race);
-    } else {
-        newList.setAttribute('class','race-element');
-    }
-    for (let i = 0; i < list.length; i++) {
-        const newLI = document.createElement('li');
-        nodes[1].push(newLI);
-        if (race) {
-            newLI.setAttribute('class','race-element ' + race);
-        } else {
-            newLI.setAttribute('class','race-element');
-        }
-        const newSpan = document.createElement('span');
-        if (race) {
-            newSpan.setAttribute('class','race-element bold ' + race);
-        } else {
-            newSpan.setAttribute('class','race-element bold');
-        }
-        newSpan.textContent = list[i][0];
-        newLI.append(newSpan);
-        const newDesc = document.createElement('p');
-        if (race) {
-            newDesc.setAttribute('class','race-element ' + race);
-        } else {
-            newDesc.setAttribute('class','race-element');
-        }
-        newDesc.style.display = 'inline';
-        newDesc.textContent = list[i][1];
-        newLI.append(newDesc);
-        newList.append(newLI);
+    // Creating the description for each race
+    const newRaceDesc = document.createElement('p');
+    newRaceDesc.textContent = race[1].description;
+    newRaceDiv.append(newRaceDesc);
 
-        customRaceEl.append(newList);
-    }
-    return (nodes);
-}
+    // Creating the Subrace Select & Subrace Lists
+    const newSubraceSelectLabel = document.createElement('label');
+    newSubraceSelectLabel.textContent = "Choose your subrace:"
+    newRaceDiv.append(newSubraceSelectLabel);
+    const newSubraceSelect = document.createElement('select');
+    newSubraceSelect.addEventListener('change',(e) =>{
+        const offSubraces = document.querySelectorAll('.subrace-element');
+        offSubraces.forEach(element => element.style.display = 'none');
+        const onSubrace = document.querySelector(`.${e.target.value}`);
+        onSubrace.style.display = 'inline';
+    });
+    newSubraceSelect.setAttribute('class','subrace-select');
+    newRaceDiv.append(newSubraceSelect);
 
-const changeViewForDragonborn = (e, initial) => {
-    const dragonbornElements = document.querySelectorAll('.dragonborn-element');
-    dragonbornElements.forEach(element => element.style.display = "none");
-    if (initial) {
-        const dragonbornTypeEl = document.createElement('h4');
-        dragonbornTypeEl.setAttribute('class','race-element dragonborn-element');
-        dragonbornTypeEl.textContent = "Standard Dragonborn";
-        customRaceEl.append(dragonbornTypeEl);
+    let subraces;
+    if (race[1].subraces) {
+        subraces = Object.entries(race[1].subraces)
+        subraces.forEach((subrace,i) => {
+            // Creating the option for each subrace
+            const newSubraceOption = document.createElement('option');
+            newSubraceOption.value = subrace[0];
+            newSubraceOption.textContent = decodeString(subrace[0]);
+            newSubraceSelect.append(newSubraceOption);
 
-        addNewFeatureList([['Ability Score Increase:'," Your Strength score increases by 2, and your Charisma score increases by 1."],["Damage Resistance:"," You have resistance to the damage type associated with your ancestry."]],"dragonborn-element");
-    } else {
-        const dragonbornType = e.target.value.toLowerCase();
-        const dragonbornTypeEl = document.createElement('h4');
-        dragonbornTypeEl.setAttribute('class','race-element dragonborn-element');
-        const dragonbornTypeName = dragonbornType.split('-');
-        for (let i = 0; i < dragonbornTypeName.length; i++) {
-            dragonbornTypeName[i] = dragonbornTypeName[i].charAt(0).toUpperCase() + dragonbornTypeName[i].slice(1);
-        }
-        dragonbornTypeEl.textContent = dragonbornTypeName.join(" ");
-        customRaceEl.append(dragonbornTypeEl);
-        switch(dragonbornType){
-            case "standard-dragonborn":
-                addNewFeatureList([['Ability Score Increase:',"Your Strength score increases by 2, and your Charisma score increases by 1."],["Damage Resistance:","You have resistance to the damage type associated with your ancestry."]],"dragonborn-element");
-            break;
+            // Creating each subrace div
+            const newSubraceDiv = document.createElement('div');
+            if (i === 0) {
+                newSubraceDiv.setAttribute('class',`subrace-element ${subrace[0]} ${race[0]}-starting`);
+            } else {
+                newSubraceDiv.setAttribute('class',`subrace-element ${subrace[0]} other`);
+            }
+            newRaceDiv.append(newSubraceDiv);
+
+            // Creating each subrace title
+            const newSubraceTitle = document.createElement('h4');
+            newSubraceTitle.textContent = decodeString(subrace[0]);
+            newSubraceDiv.append(newSubraceTitle);
+
+            // Creating the subrace features list
+            const newUL = document.createElement('ul');
             
-            case "draconblood":
-                addNewFeatureList([['Ability Score Increase:','Your Intelligence score increases by 2, and your Charisma score increases by 1.'],['Darkvision:',"You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."],['Forceful Presence:',"When you make a Intimidation or Persuasion check, you can do so with advantage once per long rest."]],'dragonborn-element');
-            break;
-            
-            case "ravenite":
-                addNewFeatureList([["Ability Score Increase:"," Your Strength score increases by 2, and your Constitution score increases by 1."],["Darkvision:"," You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."],["Vengeful Assault:"," When you take damage from a creature in range of a weapon you are wielding, you can use your reaction to make an attack against that creature. You can do this once per short or long rest."]],"dragonborn-element");
-            break;
+            const subraceFeatures = Object.entries(subrace[1]);
+            subraceFeatures.forEach((subraceFeature) => {
+                if (subraceFeature[0] == "description") {
+                    const newDescP = document.createElement('p');
+                    newDescP.textContent = subraceFeature[1];
+                    newSubraceDiv.append(newDescP);
+                } else {
+                    const newLI = document.createElement('li');
+                    const newSpan = document.createElement('span');
+                    newSpan.setAttribute('class','bold');
+                    newSpan.textContent = decodeString(subraceFeature[0]);
+                    newLI.append(newSpan);
+                    if (typeof subraceFeature[1] === "object") {
+                        const newP = document.createElement('p');
+                        newP.setAttribute('class','inline');
+                        newP.textContent = subraceFeature[1].description;
+                        newLI.append(newP)
+                        const newSelect = document.createElement('select');
+                        subraceFeature[1].choice.forEach((choice,k) => {
+                            const newOption = document.createElement('option');
+                            newOption.value = `${choice},key${k+1}`;
+                            newOption.textContent = choice;
+                            newSelect.append(newOption);
+                        });
+                        newLI.append(newSelect);
+                        if (subraceFeature[1]["choice-result"]){
+                            newSelect.addEventListener('change',(e) => {
+                                console.log('i ran');
+                                const offSelects = document.querySelectorAll('.race-choice-in-choice');
+                                offSelects.forEach(element => element.style.display = 'none');
+                                const dataID = e.target.value.split(',')[1];
+                                const onSelects = document.querySelectorAll(`.${dataID}`);
+                                onSelects.forEach(element => element.style.display = 'block');
+                            });
+                            const selects = Object.entries(subraceFeature[1]["choice-result"])
+                            selects.forEach((select,l) => {
+                                if (select[1][0] === "unique") {
+                                    for (let j = 1; j < select[1].length; j++) {
+                                        const newerSelect = document.createElement('select');
+                                        newerSelect.setAttribute('class',`race-choice-in-choice key${l+1}`);
 
-            case "chromatic-dragon":
-                addNewFeatureList([["Ability Score Increase:"," Increase one ability score by 2 and increase a different one by 1, or you increase three different scores by 1."],["Chromatic Ancestry"," You trace your ancestry to a chromatic dragon, granting you a special magical affinity. Choose one type of dragon from the Chromatic Ancestry table. This determines the damage type for your other traits as shown in the table."]],"dragonborn-element");
-            break;
+                                        const newerOptions = select[1][j];
+                                        newerOptions.forEach((newerOption) => {
+                                            const myOption = document.createElement('option');
+                                            myOption.value = newerOption;
+                                            myOption.textContent = newerOption;
+                                            newerSelect.append(myOption);
+                                        });
+                                        newLI.append(newerSelect);
+                                    }
+                                } else {
+                                    for (let j = 0; j < select[1].length; j++) {
+                                        const newerSelect = document.createElement('select');
+                                        newerSelect.setAttribute('class',`race-choice-in-choice key${l+1}`);
 
-            case "gem-dragon":
-            break;
+                                        const newerOptions = select[1][j];
+                                        newerOptions.forEach((newerOption) => {
+                                            const myOption = document.createElement('option');
+                                            myOption.value = newerOption;
+                                            myOption.textContent = newerOption;
+                                            newerSelect.append(myOption);
+                                        });
+                                        newLI.append(newerSelect);
+                                    }
+                                }
+                            });
+                            newSelect.addEventListener('change',() => {
 
-            case "metalic-dragon":
-            break;
-        }
-    }
-}
-
-const changeViewForRace = (e,initial) => {
-    if(initial){
-        raceDescriptionEl.textContent = races["dragonborn"].description;
-    } else {
-        const race = e.target.value;
-        raceDescriptionEl.textContent = races[race.toLowerCase()].description;
-    }
-    let race;
-    if (initial) {
-        race = "dragonborn";
-    } else {
-        race = e.target.value.toLowerCase();
-    }
-    switch(race){
-
-        case "dragonborn":
-            changeRace();
-            const dragonbornTypeLabelEl = document.createElement('label');
-            dragonbornTypeLabelEl.style.display = 'block';
-            dragonbornTypeLabelEl.setAttribute('for','dragonborn-type');
-            dragonbornTypeLabelEl.setAttribute('class','race-element');
-            dragonbornTypeLabelEl.setAttribute('id','dragonborn-type-label');
-            dragonbornTypeLabelEl.textContent = 'Choose your Dragonborn Type: ';
-            const dragonbornTypeSelectEl = document.createElement('select');
-
-            const standardDragonborn = document.createElement('option');
-            standardDragonborn.setAttribute('value','standard-dragonborn');
-            standardDragonborn.setAttribute('id','dragonborn-type');
-            standardDragonborn.textContent = "Standard Dragonborn";
-            dragonbornTypeSelectEl.append(standardDragonborn);
-            const draconblood = document.createElement('option');
-            draconblood.setAttribute('value','draconblood');
-            draconblood.textContent = "Draconblood";
-            dragonbornTypeSelectEl.append(draconblood);
-            const ravenite = document.createElement('option');
-            ravenite.setAttribute('value','ravenite');
-            ravenite.textContent = "Ravenite";
-            dragonbornTypeSelectEl.append(ravenite);
-            const chromaticDragonborn = document.createElement('option');
-            chromaticDragonborn.setAttribute('value','chromatic-dragonborn');
-            chromaticDragonborn.textContent = "Chromatic Dragonborn";
-            dragonbornTypeSelectEl.append(chromaticDragonborn);
-            const gemDragonborn = document.createElement('option');
-            gemDragonborn.setAttribute('value','gem-dragonborn');
-            gemDragonborn.textContent = "Gem Dragonborn";
-            dragonbornTypeSelectEl.append(gemDragonborn);
-            const metalicDragonborn = document.createElement('option');
-            metalicDragonborn.setAttribute('value','metalic-dragonborn');
-            metalicDragonborn.textContent = "Metalic Dragonborn";
-            dragonbornTypeSelectEl.append(metalicDragonborn);
-
-            dragonbornTypeSelectEl.addEventListener('change',(e) => {
-                changeViewForDragonborn(e);
+                            });
+                        }
+                    } else {
+                        const newP = document.createElement('p');
+                        newP.setAttribute('class','inline');
+                        newP.textContent = subraceFeature[1];
+                        newLI.append(newP);
+                    }
+                    newUL.append(newLI);
+                }
             });
-
-            const dragonbornFeaturesEl = document.createElement('h4');
-            dragonbornFeaturesEl.textContent = "Dragonborn Features";
-            dragonbornFeaturesEl.setAttribute('class','race-element');    
-
-            customRaceEl.append(dragonbornFeaturesEl);
-            const nodes = addNewFeatureList([["Age:"," Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80."],
-            ["Alignment:"," Dragonborn tend towards extremes, making a conscious choice for one side or the other between Good and Evil (represented by Bahamut and Tiamat, respectively). More side with Bahamut than Tiamat (whose non-dragon followers are mostly kobolds), but villainous dragonborn can be quite terrible indeed. Some rare few choose to devote themselves to lesser dragon deities, such as Chronepsis (Neutral), and fewer still choose to worship Io, the Ninefold Dragon, who is all alignments at once."],
-            ["Size:"," Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium."],
-            ["Speed:"," Your base walking speed is 30 ft."],
-            ["Draconic Ancestry:"," You are distantly related to a particular kind of dragon. Choose a type of dragon from the below list; this determines the damage and area of your breath weapon, and the type of resistance you gain."]
-            ]);
-            makeSelect(nodes[1][nodes[1].length-1],[['class','race-element']],[['Black',['class','race-element'],['data-dragontype','black']],
-            ['Blue',['class','race-element'],['data-dragontype','blue']],
-            ['Brass',['class','race-element'],['data-dragontype','brass']],
-            ['Bronze',['class','race-element'],['data-dragontype','bronze']],
-            ['Copper',['class','race-element'],['data-dragontype','copper']],
-            ['Gold',['class','race-element'],['data-dragontype','gold']],
-            ['Green',['class','race-element'],['data-dragontype','green']],
-            ['Red',['class','race-element'],['data-dragontype','red']],
-            ['Silver',['class','race-element'],['data-dragontype','silver']],
-            ['White',['class','race-element'],['data-dragontype','white']],
-            ],'block');
-            customRaceEl.append(dragonbornTypeLabelEl);
-            customRaceEl.append(dragonbornTypeSelectEl);
-            changeViewForDragonborn({},true);
-        break;
-
-        case "dwarf":
-            changeRace();
-        break;
-
-        case "elf":
-            changeRace();
-        break;
-
-        case "gnome":
-            changeRace();
-        break;
-
-        case "half-elf":
-            changeRace();
-        break;
-
-        case "half-orc":
-            changeRace();
-        break;
-
-        case "halfling":
-            changeRace();
-        break;
-
-        case "human":
-            changeRace();
-        break;
-
-        case "tiefling":
-            changeRace();
-        break;
+            newSubraceDiv.append(newUL);
+        });
     }
-}
-changeViewForRace({},true);
-
-racesSelectEl.addEventListener('change',(e) => {
-    changeViewForRace(e);
 });
+
+const raceSpan = document.querySelector('#race-span');
+racesSelect.addEventListener('change',(e) => {
+    // Change the race span
+    raceSpan.textContent = decodeString(e.target.value);
+
+    // Grab all race divs and turn them all off
+    const allRaceDivs = document.querySelectorAll('.race-element');
+
+    allRaceDivs.forEach((div) => {
+        div.style.display = "none";
+    });
+    // Turn on the correct race div
+    const onRace = document.querySelector(`.${e.target.value}`);
+
+    onRace.style.display = 'inline';
+
+    // Only show the starting subrace
+    const onSubrace = document.querySelector(`.${e.target.value}-starting`);
+    onSubrace.style.display = 'inline';
+
+    const offSubraces = document.querySelectorAll(`.other`);
+    offSubraces.forEach(subrace => subrace.style.display = 'none');
+
+    // TODO: Set the subrace back to the standard one because that is the subrace showing
+
+});
+
+const onlyShowStartingSubrace = () => {
+    const offSubraces = document.querySelectorAll(`.other`);
+    offSubraces.forEach(subrace => subrace.style.display = 'none');
+}
+onlyShowStartingSubrace();

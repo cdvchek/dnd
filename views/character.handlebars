@@ -3,93 +3,12 @@
     <div id="whitespace">
         <form id="form">
             <div id="race">
-                <div class="spacing"></div>
-                <h1>Race</h1>
-                <label  for="Races">Choose a Race:</label>
-                <select name="Races" id="Races">
-                    <optgroup label="Player's Handbook">
-                        <option value="Dragonborn">Dragonborn</option>
-                        <option value="Dwarf">Dwarf</option>
-                        <option value="Elf">Elf</option>
-                        <option value="Gnome">Gnome</option>
-                        <option value="Halfling">Halfling</option>
-                        <option value="Half-Orc">Half-Orc</option>
-                        <option value="Human">Human</option>
-                        <option value="Tiefling">Tiefling</option>
-                    </optgroup>
-                    <optgroup label="Explorer's Guide to Wildemount">
-                        <option value="Orc of Exandria">Orc of Exandria</option>
-                    </optgroup>
-                    <optgroup label="Mythic Odysseys of Theros">
-                        <option value="Leonin">Leonin</option>
-                        <option value="Satyr">Satry</option>
-                    </optgroup>
-                    <optgroup label="Van Richten's Guide to Ravenloft">
-                        <option value="Lineages">Lineages</option>
-                    </optgroup>
-                    <optgroup label="The Wild Beyond the Witchlight">
-                        <option value="Fairy">Fairy</option>
-                        <option value="Harengon">Harengon</option>
-                    </optgroup>
-                    <optgroup label="Strixhaven: A Curriculum of Chaos">
-                        <option value="Owlin">Owlin</option>
-                    </optgroup>
-                    <optgroup label="Elemental Evil Player's Companion">
-                        <option value="Aarakocra">Aarakocra</option>
-                        <option value="Genasi">Genasi</option>
-                        <option value="Goliath">Goliath</option>
-                    </optgroup>
-                    <optgroup label="Volo's Guide to Monsters">
-                        <option value="Aasimar">Aasimar</option>
-                        <option value="Bugbear">Bugbear</option>
-                        <option value="Firbolg">Firbolg</option>
-                        <option value="Goblin">Goblin</option>
-                        <option value="Hobgoblin">Hobgoblin</option>
-                        <option value="Kenku">Kenku</option>
-                        <option value="Kobold">Kobold</option>
-                        <option value="Lizardfolk">Lizardfolk</option>
-                        <option value="Orc">Orc</option>
-                        <option value="Tabaxi">Tabaxi</option>
-                        <option value="Triton">Triton</option>
-                        <option value="Yuan-ti Pureblood">Yuan-ti Pureblood</option>
-                    </optgroup>
-                    <optgroup label="Sword Coast Adventurer's Guide">
-                        <option value="Feral Tiefling">Feral Tiefling</option>
-                    </optgroup>
-                    <optgroup label="The Tortle Package">
-                        <option value="Tortle">Tortle</option>
-                    </optgroup>
-                    <optgroup label="Eberron: Rising from the Last War">
-                        <option value="Changeling">Changeling</option>
-                        <option value="Kalashtar">Kalashtar</option>
-                        <option value="Orc of Eberron">Orc of Eberron</option>
-                        <option value="Shifter">Shifter</option>
-                        <option value="Warforged">Wargorged</option>
-                    </optgroup>
-                    <optgroup label="Mordenkainen's Tome of Foes">
-                        <option value="Gith">Gith</option>
-                    </optgroup>
-                    <optgroup label="Guildmasters' Guide to Ravnica">
-                        <option value="Centaur">Centaur</option>
-                        <option value="Loxodon">Loxodon</option>
-                        <option value="Minotaur">Minotaur</option>
-                        <option value="Simic Hybrid">Simic Hybrid</option>
-                        <option value="Vedalken">Vedalken</option>
-                    </optgroup>
-                    <optgroup label="Aquistions Incorporated">
-                        <option value="Verdan">Verdan</option>
-                    </optgroup>
-                    <optgroup label="Locathah Rising">
-                        <option value="Locathah">Locathah</option>
-                    </optgroup>
-                    <optgroup label="One Grung Above">
-                        <option value="Grung">Grung</option>
-                    </optgroup>
-                </select>
-                <p id="race-description"></p>
-                <div id="custom-race"></div>
                 <button class="back" data-back="#background" data-current="#race">Back</button>
                 <button class="next" data-next="#class" data-current="#race">Next</button>
+                <div class="spacing"></div>
+                <h1>Race: <span id="race-span">Dragonborn</span></h1>
+                <label  for="Races">Choose a Race:</label>
+                <select name="Races" id="Races"></select>
             </div>
             <div id="class">
                 <label for="Classes">Choose a Class:</label>
