@@ -23,7 +23,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
 .not-middle{
@@ -31,7 +32,7 @@
 }
 
 .mybox{
-    border: solid red;
+    border: solid black;
 }
 
 .tab{
@@ -40,6 +41,10 @@
 
 .tabs-content{
     display:none;
+}
+
+.tile{
+    border: rgba(150,150,150,50)solid .5px;
 }
 
 /* default tab is chat */
