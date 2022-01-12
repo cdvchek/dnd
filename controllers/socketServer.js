@@ -22,5 +22,10 @@ exports = module.exports = function (io) {
             const room = socketObj.game_id;
             socket.broadcast.to(room).emit('s-sendChat', socketObj);
         });
+
+        socket.on('c-newToken',(socketObj) => {
+            const room = socketObj.game_id;
+            socket.broadcast.to(room).emit('s-newToken',socketObj);
+        });
     });
 }

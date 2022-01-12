@@ -1,3 +1,5 @@
+window.history.pushState(null,'',window.location);
+
 const socket = io.connect();
 const joinNotiRoom = () => {
     const email = document.querySelector('#container').getAttribute('data-email');
@@ -333,5 +335,39 @@ const wrapper = async () => {
         makeInvite(inviteID,gameID);
     });
     
+    const ppFileInputEl = document.querySelector('#profile-picture-input');
+    const ppCanvasEl = document.querySelector('#profile-picture');
+    
+    ppFileInputEl.addEventListener('change', (e) => {
+        e.preventDefault();
+        const ctx = ppCanvasEl.getContext('2d');
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(e.target.files[0]);
+        ctx.drawImage(img, 100, 100);
+    });
+
+    const notModal = document.querySelector('#not-modal');
+
+    const closeModal = (e) => {
+        const modals = document.querySelectorAll('.mymodal');
+        console.log(modals);
+        modals.forEach(modal => modal.style.display = 'none');
+        notModal.setAttribute('style','filter: none;');
+        e.target.removeEventListener('click',closeModal);
+    }
+
+    const openModal = (e) => {
+        const modalId = e.target.getAttribute('data-modalid');
+        const modal = document.querySelector(`#${modalId}`);
+        modal.setAttribute('style','display: inline; position: absolute; left: 20%; top: 5%;');
+        notModal.setAttribute('style','filter: brightness(0.5) blur(5px);');
+        setTimeout(()=>{
+            notModal.addEventListener('click',closeModal);
+        },100);
+    }
+
+    const ppChangeBtnEl = document.querySelector('#pp-change-btn');
+
+    ppChangeBtnEl.addEventListener('click', openModal);
 }
 wrapper();

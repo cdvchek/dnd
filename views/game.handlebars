@@ -5,12 +5,12 @@
         <p>{{description}}</p>
     </div>
     <div class="middle">
-        <div class="mybox topmiddle" id="vir-board"></div>
+        <div class="mybox topmiddle"><canvas id="vir-board"></canvas></div>
         <div class="mybox bottommiddle">
             
         </div>
     </div>
-    <div class="not-middle mybox">
+    <div id="right-box" class="not-middle mybox">
         <div class="tabs-div">
             <ul class="tabs">
                 <li class="tab" id="tab-chat" data-tab="chat">Chat</li>
@@ -41,6 +41,7 @@
                 </form>
             {{/if}}
         </div>
+        <div id="junk-box" style="display:none;"></div>
     </div>
 </div>
 <script src="../js/gamednd.js"></script>

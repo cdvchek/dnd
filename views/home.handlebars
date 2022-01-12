@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./css/home.css"/>
 <script src="./js/homehover.js"></script>
-<div>
+<div id="not-modal">
     <nav class="navbar">
         <h1>DnD</h1>
         <ul class="navbar-ul">
@@ -64,7 +64,8 @@
             </button>
         </div>
         <div class="profile-picture-div">
-            <canvas class="profile-picture"></canvas>
+            <canvas class="profile-picture" id="profile-picture"></canvas>
+            <button data-modalid="modal-profile-picture" id="pp-change-btn">Change Profile Picture</button>
         </div>
         <div class="username-email-div">
             <div class="username-div">
@@ -100,6 +101,11 @@
         <div class="logout-button-div">
             <button class="logout" id="logout">Logout</button>
         </div>
+    </div>
+</div>
+<div class="mymodal" id="modal-profile-picture" style="position: absolute; left: 20%; top: 5%;">
+    <div style="position: relative; left: -50%; top: -50%; border: dotted red 1px;">
+        <input type="file" id="profile-picture-input">
     </div>
 </div>
 <script src="./js/home.js"></script>
