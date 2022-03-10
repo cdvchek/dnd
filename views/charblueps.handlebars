@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="./css/home.css"/>
+<link rel="stylesheet" href="../css/charblueps.css"/>
 <link rel="stylesheet" href="../css/navbar.css"/>
-<script src="./js/homehover.js"></script>
-<div id="not-modal">
+<div>
     <nav class="navbar">
         <h1>Nat20</h1>
         <ul class="navbar-ul">
@@ -17,45 +16,6 @@
             </li>
         </ul>
     </nav>
-    <div id="container" class="container" data-email={{email}}>
-        {{#each game}}
-        <div class="game-card" onmouseover="onhover(this)" onmouseleave="onleave(this)" data-uid={{this.id}} data-isgm={{this.isGM}}>
-            {{#if this.isGM}}
-            <div class="delete-game-button-div">
-                <button class="delete-game-button" data-id={{this.id}}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x x" viewBox="0 0 16 16" data-id={{this.id}}>
-                        <path data-id={{this.id}} d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                    </svg>
-                </button>
-            </div>
-            {{/if}}
-            <div class="game-name-input-field">
-                <h4 class="game-p">{{this.name}}</h4>
-            </div>
-            <div class="create-game-button-field">
-                <button class="launch-game-button" data-id={{this.id}}>Launch Game</button>
-            </div>
-        </div>
-        {{/each}}
-        <div id="create-game-div" class="game-card">
-            <div class="game-name-input-field">
-                <p class="game-p">Game Name</p>
-                <div class="game-name-input-div">
-                    <input id="game-name-input" class="game-name-input" type="text" placeholder="Type your game's name">
-                </div>
-            </div>
-            <div class="game-desc-input-field">
-                <p class="game-p">Game Description</p>
-                <div class="game-desc-input-div">
-                    <textarea id="game-desc-input" class="game-desc-input" placeholder="Type your game's description"></textarea>
-                </div>
-            </div>
-            <div class="create-game-button-field">
-                <button id="create-game-button">Create Game</button>
-            </div>
-        </div>
-
-    </div>
     <div class="profile" id="profile">
         <div class="close-profile-button-div">
             <button class="close-profile-button close-profile-btn" id="close-profile-button">
@@ -103,11 +63,15 @@
             <button class="logout" id="logout">Logout</button>
         </div>
     </div>
-</div>
-<div class="mymodal" id="modal-profile-picture" style="position: absolute; left: 20%; top: 5%;">
-    <div style="position: relative; left: -50%; top: -50%; border: dotted red 1px;">
-        <input type="file" id="profile-picture-input">
+    <div id="page-body">
+        <div id="charblueps-content">
+            <h2 id="charblueps-title">Character Blueprints</h2>
+            <button id="create-btn">Create</button>
+            <div id="charblueps-chars">
+
+            </div>
+        </div>
     </div>
 </div>
-<script src="./js/home.js"></script>
-<script src="./js/navbar.js"></script>
+<script src="../js/navbar.js"></script>
+<script src="../js/charblueps.js"></script>

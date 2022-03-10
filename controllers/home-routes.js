@@ -42,8 +42,18 @@ router.get("/game:id",(req,res) => {
             return res.render("game",hbsObj);
         })
     } else {
-        // TODO: it shouldnt be a 404, it should be whatever unauthorized is, because they arent authorized to see this game.
-        return res.status(404).redirect('/');
+        return res.status(401).redirect('/');
+    }
+});
+
+// Character Blueprints
+router.get("/charblueps:id",(req,res) => {
+    console.log(req.session.user.id);
+    console.log(req.params.id);
+    if(req.session.user.id == req.params.id){
+        return res.render("charblueps");
+    } else {
+        return res.status(401).redirect("/");
     }
 });
 
