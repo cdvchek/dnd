@@ -57,6 +57,11 @@ router.get("/charblueps:id",(req,res) => {
     }
 });
 
+// Character Blueprint Creation
+router.get('/createcharbluep',(req,res) => {
+    return res.render("createcharbluep");
+});
+
 // Character Creation
 router.get('/createcharacter',(req,res) => {
     return res.render("character");
