@@ -3,23 +3,36 @@
     <div id="nsl-div" class="page">
         <h2 class="title">Choose a Name and Starting Level</h2>
         <h3>Character Name</h3>
-        <input type="text">
+        <input id="char-name-in" type="text">
         <h3>Starting Level</h3>
-        <input type="number" value="1">
+        <input id="start-lvl-in" type="number" value="1">
     </div>
     <div id="race-div" class="page">
         <h2 class="title">Choose a Race</h2>
         <h3>Race</h3>
-        <input type="text">
+        <input id="race-in" type="text">
         <h4>Subrace</h4>
-        <input type="text">
+        <input id="subrace-in" type="text">
+        <h4>Ability Score Increase</h4>
+        <select name="rasi" id="rasi">
+            <option value="strength">Strength</option>
+            <option value="dexterity">Dexterity</option>
+            <option value="constitution">Constitution</option>
+            <option value="intelligence">Intelligence</option>
+            <option value="wisdom">Wisdom</option>
+            <option value="charisma">Charisma</option>
+        </select>
+        <input id="rasi-inc" type="number">
+        <button id="aaasi-btn">Add Another</button>
         <h4>Race Features</h4>
         <button>Add Feature</button>
     </div>
     <div id="class-div" class="page">
         <h2 class="title">Choose a Class</h2>
         <h3>Class</h3>
-        <input type="text">
+        <input id="class-in" type="text">
+        <h4>Class Features</h4>
+        <button>Add Feature</button>
     </div>
     <div id="as-div" class="page">
         <h2 class="title">Assign Your Ability Scores</h2>
@@ -43,7 +56,11 @@
         <button>Add Equipment</button>
     </div>
     <div id="review-div" class="page">
-
+        <h2>review</h2>
+    </div>
+    <div>
+        <button id="back-btn" class="nav-btn">&lt; Back</button>
+        <button id="next-btn" class="nav-btn">Next ></button>
     </div>
 </div>
 <script src="./js/createcharbluep.js"></script>
