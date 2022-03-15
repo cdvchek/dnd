@@ -2,7 +2,8 @@
 <div id="page-body">
     <div id="nsl-div" class="page">
         <h2 class="title">Choose a Name and Starting Level</h2>
-        <h3>Character Name</h3>
+        <h3>Blueprint Name</h3>
+        <p>This is different than a character name, you will choose a character name when you port this blueprint into a campaign. The blueprint name is so that you can identify this blueprint.</p>
         <input id="char-name-in" type="text">
         <h3>Starting Level</h3>
         <input id="start-lvl-in" type="number" value="1">
@@ -14,18 +15,13 @@
         <h4>Subrace</h4>
         <input id="subrace-in" type="text">
         <h4>Ability Score Increase</h4>
-        <select name="rasi" id="rasi">
-            <option value="strength">Strength</option>
-            <option value="dexterity">Dexterity</option>
-            <option value="constitution">Constitution</option>
-            <option value="intelligence">Intelligence</option>
-            <option value="wisdom">Wisdom</option>
-            <option value="charisma">Charisma</option>
-        </select>
-        <input id="rasi-inc" type="number">
-        <button id="aaasi-btn">Add Another</button>
+        <div id="aaasi-div">
+        </div>
+        <button id="aaasi-btn">Add Ability Score Increase</button>
         <h4>Race Features</h4>
-        <button>Add Feature</button>
+        <div id="rf-div">
+        </div>
+        <button id="arf-btn">Add Feature</button>
     </div>
     <div id="class-div" class="page">
         <h2 class="title">Choose a Class</h2>
@@ -63,4 +59,5 @@
         <button id="next-btn" class="nav-btn">Next ></button>
     </div>
 </div>
+<button id="cancel-btn">Cancel</button>
 <script src="./js/createcharbluep.js"></script>

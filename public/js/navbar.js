@@ -33,7 +33,7 @@ const navbarSetup = async () => {
     const charbluepsBtn = document.querySelector('#char-blueps-btn');
 
     const goToCharBlueps = () => {
-        document.location.replace(`/charblueps${session.user.id}`);
+        document.location.replace(`/charblueps`);
     }
 
     charbluepsBtn.addEventListener('click',goToCharBlueps);

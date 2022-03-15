@@ -15,6 +15,23 @@
     height: 70vh;
     width: 40vw;
     text-align: center;
+    overflow: scroll;
+}
+
+#cancel-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    border: white solid;
+    border-radius: 10px;
+    background: none;
+    color: rgb(255, 255, 255);
+    transition: all .2s ease-in-out;
+}
+
+#cancel-btn:hover {
+    transform: scale(1.1);
 }
 
 #nsl-div {
@@ -37,7 +54,7 @@
     color: white;
     padding: 3px 20px;
     border-radius: 15px;
-    margin: 0 20px;
+    margin: 0 150px;
 }
 
 #aaasi-btn {
@@ -49,4 +66,38 @@
 
 #aaasi-btn:hover {
     color:rgb(66, 122, 40);
+}
+
+#aaasi-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+}
+
+.remove-btn:hover {
+    color: rgb(151, 22, 22);
+}
+
+#arf-btn {
+    background: none;
+    border: none;
+}
+
+#arf-btn:hover {
+    color: green;
+}
+
+.newrf-div {
+    margin: 10px 0 30px 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rfname-input {
+    display: block;
 }

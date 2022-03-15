@@ -47,14 +47,8 @@ router.get("/game:id",(req,res) => {
 });
 
 // Character Blueprints
-router.get("/charblueps:id",(req,res) => {
-    console.log(req.session.user.id);
-    console.log(req.params.id);
-    if(req.session.user.id == req.params.id){
-        return res.render("charblueps");
-    } else {
-        return res.status(401).redirect("/");
-    }
+router.get("/charblueps",(req,res) => {
+    return res.render("charblueps");
 });
 
 // Character Blueprint Creation

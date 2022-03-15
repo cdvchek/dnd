@@ -16,6 +16,11 @@
      margin-right: 25px;
      vertical-align: middle;
      line-height: 60px;
+     cursor: pointer;
+ }
+
+ .navbar-item:hover {
+     color: green;
  }
  
  .navbar-profile{
