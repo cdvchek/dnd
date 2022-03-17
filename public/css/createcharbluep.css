@@ -101,3 +101,47 @@
 .rfname-input {
     display: block;
 }
+
+#acf-btn {
+    background: none;
+    border: none;
+}
+
+#acf-btn:hover {
+    color: green;
+}
+
+.newcf-div {
+    margin: 10px 0 30px 0;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cfname-input {
+    display: block;
+}
+
+#profs-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#aprof-btn {
+    background: none;
+    border: none;
+}
+
+#aprof-btn:hover {
+    color: green;
+}
+
+#skill-prof-table-div {
+    display: flex;
+    justify-content: center;
+}
+
+#skill-prof-table {
+    text-align: left;
+}

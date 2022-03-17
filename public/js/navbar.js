@@ -20,14 +20,14 @@ const navbarSetup = async () => {
 
     aboutBtn.addEventListener('click',goToAbout);
 
-    // Community
-    const communityBtn = document.querySelector('#community-btn');
+    // Resources
+    const resourcesBtn = document.querySelector('#resources-btn');
 
-    const goToCommunity = () => {
-        document.location.replace('/community');
+    const goToResources = () => {
+        document.location.replace('/resources');
     }
 
-    communityBtn.addEventListener('click',goToCommunity);
+    resourcesBtn.addEventListener('click',goToResources);
 
     // Character Blueprints
     const charbluepsBtn = document.querySelector('#char-blueps-btn');

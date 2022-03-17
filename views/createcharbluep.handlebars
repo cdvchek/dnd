@@ -27,19 +27,306 @@
         <h2 class="title">Choose a Class</h2>
         <h3>Class</h3>
         <input id="class-in" type="text">
+        <h3>Subclass</h3>
+        <input id="subclass-in" type="text">
         <h4>Class Features</h4>
-        <button>Add Feature</button>
+        <div id="cf-div">
+        </div>
+        <button id="acf-btn">Add Feature</button>
+    </div>
+    <div id="background-div" class="page">
+        <h2 class="title">Choose a Background</h2>
+    </div>
+    <div id="prof-div" class="page">
+        <h2 class="title">Choose Proficiencies</h2>
+        <p>This is where you add languages, weapon, tool, and armor proficiencies.</p>
+        <div id="profs-div">
+        </div>
+        <button id="aprof-btn">Add Proficiency</button>
+        <h3>Skill Proficiencies</h3>
+        <div id="skill-prof-table-div">
+            <table id="skill-prof-table">
+                <tr>
+                    <th>Skill</th>
+                    <th>Multiplier</th>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-acro">
+                            <input type="checkbox" id="acrobatics-in" name="acrobatics">
+                            <label for="acrobatics">Acrobatics</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-an-ha">
+                            <input type="checkbox" id="animal-handling-in" name="animal-handling">
+                            <label for="animal-handling">Animal Handling</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-arca">
+                            <input type="checkbox" id="arcana-in" name="arcana">
+                            <label for="arcana">Arcana</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-athl">
+                            <input type="checkbox" id="athletics-in" name="athletics">
+                            <label for="athletics">Athletics</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-dece">
+                            <input type="checkbox" id="deception-in" name="deception">
+                            <label for="deception">Deception</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-hist">
+                            <input type="checkbox" id="history-in" name="history">
+                            <label for="history">History</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-insi">
+                            <input type="checkbox" id="insight-in" name="insight">
+                            <label for="insight">Insight</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-inti">
+                            <input type="checkbox" id="intimidation-in" name="intimidation">
+                            <label for="intimidation">Intimidation</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-inve">
+                            <input type="checkbox" id="investigation-in" name="investigation">
+                            <label for="investigation">Investigation</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>            
+                        <div id="sp-medi">
+                            <input type="checkbox" id="medicine-in" name="medicine">
+                            <label for="medicine">Medicine</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-natu">
+                            <input type="checkbox" id="nature-in" name="nature">
+                            <label for="nature">Nature</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-perc">
+                            <input type="checkbox" id="perception-in" name="perception">
+                            <label for="perception">Perception</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-perf">
+                            <input type="checkbox" id="performance-in" name="performance">
+                            <label for="performance">Performance</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-pers">
+                            <input type="checkbox" id="persuasion-in" name="persuasion">
+                            <label for="persuasion">Persuasion</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-reli">
+                            <input type="checkbox" id="religion-in" name="religion">
+                            <label for="religion">Religion</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-sl-ha">
+                            <input type="checkbox" id="sleight-of-hand-in" name="sleight-of-hand">
+                            <label for="sleight-of-hand">Sleight of Hand</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-stea">
+                            <input type="checkbox" id="stealth-in" name="stealth">
+                            <label for="stealth">Stealth</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="sp-surv">
+                            <input type="checkbox" id="survival-in" name="survival">
+                            <label for="survival">Survival</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input type="number" value="2">
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div id="as-div" class="page">
         <h2 class="title">Assign Your Ability Scores</h2>
         <h3>Ability Scores</h3>
-        <button>Roll</button>
-        <input id="as-str" type="text">
-        <input id="as-dex" type="text">
-        <input id="as-con" type="text">
-        <input id="as-int" type="text">
-        <input id="as-wis" type="text">
-        <input id="as-cha" type="text">
+        <button id="as-roll-btn">Roll</button>
+        <div>
+            <input id="as-one-in" type="number">
+            <label for="as-one">Assign to:</label>
+            <select name="as-one" id="">
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="constitution">Constitution</option>
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Wisdom</option>
+                <option value="charisma">Charisma</option>
+            </select>
+        </div>
+        <div>
+            <input id="as-two-in" type="number">
+            <label for="as-two">Assign to:</label>
+            <select name="as-two" id="">
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="constitution">Constitution</option>
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Wisdom</option>
+                <option value="charisma">Charisma</option>
+            </select>
+        </div>
+        <div>
+            <input id="as-three-in" type="number">
+            <label for="as-three">Assign to:</label>
+            <select name="as-three" id="">
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="constitution">Constitution</option>
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Wisdom</option>
+                <option value="charisma">Charisma</option>
+            </select>
+        </div>
+        <div>
+            <input id="as-four-in" type="number">
+            <label for="as-four">Assign to:</label>
+            <select name="as-four" id="">
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="constitution">Constitution</option>
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Wisdom</option>
+                <option value="charisma">Charisma</option>
+            </select>
+        </div>
+        <div>
+            <input id="as-five-in" type="number">
+            <label for="as-five">Assign to:</label>
+            <select name="as-five" id="">
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="constitution">Constitution</option>
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Wisdom</option>
+                <option value="charisma">Charisma</option>
+            </select>
+        </div>
+        <div>
+            <input id="as-six-in" type="number">
+            <label for="as-six">Assign to:</label>
+            <select name="as-six" id="">
+                <option value="strength">Strength</option>
+                <option value="dexterity">Dexterity</option>
+                <option value="constitution">Constitution</option>
+                <option value="intelligence">Intelligence</option>
+                <option value="wisdom">Wisdom</option>
+                <option value="charisma">Charisma</option>
+            </select>
+        </div>
     </div>
     <div id="desc-div" class="page">
         <h2 class="title">Describe Your Character</h2>
