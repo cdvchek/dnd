@@ -249,8 +249,9 @@
         </div>
     </div>
     <div id="as-div" class="page">
-        <h2 class="title">Assign Your Ability Scores</h2>
+        <h2 class="title">Ability Scores and Saving Throws</h2>
         <h3>Ability Scores</h3>
+        <p>The roll button will roll a 4d6, six times, for each ability score, then remove the lowest number, and then add the other three.</p>
         <button id="as-roll-btn">Roll</button>
         <div>
             <input id="as-one-in" type="number">
@@ -324,11 +325,60 @@
                 <option value="charisma">Charisma</option>
             </select>
         </div>
+        <h3>Saving Throws</h3>
+        <div id="st-table-div">
+            <table id="st-table">
+                <tr>
+                    <td>
+
+                        <label for="str-st">Strength:</label>
+                        <input name="str-st" type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="dex-st">Dexterity:</label>
+                        <input name="dex-st" type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="con-st">Constitution:</label>
+                        <input name="con-st" type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="int-st">Intelligence:</label>
+                        <input name="int-st" type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="wis-st">Wisdom:</label>
+                        <input name="wis-st" type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="cha-st">Charisma:</label>
+                        <input name="cha-st" type="checkbox">
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     <div id="desc-div" class="page">
         <h2 class="title">Describe Your Character</h2>
         <h3>Character Description</h3>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <h4>Personality Traits</h4>
+        <textarea cols="40" rows="5"></textarea>
+        <h4>Ideals</h4>
+        <textarea cols="40" rows="5"></textarea>
+        <h4>Bonds</h4>
+        <textarea cols="40" rows="5"></textarea>
+        <h4>Flaws</h4>
+        <textarea cols="40" rows="5"></textarea>
     </div>
     <div id="equip-div" class="page">
         <h2 class="title">Choose Your Starting Equipment</h2>
@@ -337,6 +387,7 @@
     </div>
     <div id="review-div" class="page">
         <h2>review</h2>
+        
     </div>
     <div>
         <button id="back-btn" class="nav-btn">&lt; Back</button>

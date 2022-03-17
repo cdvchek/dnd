@@ -145,3 +145,21 @@
 #skill-prof-table {
     text-align: left;
 }
+
+#as-roll-btn {
+    background-image: linear-gradient(135deg, rgb(114, 197, 99), rgb(66, 122, 40));
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+#st-table-div {
+    display: flex;
+    justify-content: center;
+}
+
+#st-table {
+    text-align: right;
+}
